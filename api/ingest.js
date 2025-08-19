@@ -10,10 +10,6 @@ const pool = new pg.Pool({
   ssl: { rejectUnauthorized: false },
 });
 
-// Health check endpoint
-app.get("/health", (req, res) => {
-  res.status(200).json({ status: "ok" });
-});
 
 // Ingest endpoint with authentication
 app.post("/", async (req, res) => {
