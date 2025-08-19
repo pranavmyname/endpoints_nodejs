@@ -1,6 +1,5 @@
 import express from "express";
 import pg from "pg";
-import serverless from "serverless-http";
 
 const app = express();
 app.use(express.json());
