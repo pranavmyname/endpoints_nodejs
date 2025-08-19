@@ -1,5 +1,6 @@
 import express from "express";
 import pg from "pg";
+import serverless from "serverless-http";
 
 const app = express();
 app.use(express.json());
@@ -73,6 +74,12 @@ app.post("/ingest", async (req, res) => {
 
 // Start server
 const PORT = process.env.PORT || 8080;
-app.listen(PORT, () => {
-  console.log(`Ingest service running on port ${PORT}`);
-});
+// app.listen(PORT, () => {
+//   console.log(`Ingest service running on port ${PORT}`);
+// });
+
+// ✅ Export a serverless handler instead
+export const handler = serverless(app);
+
+// Also export default for Vercel’s default import
+export default handler;
