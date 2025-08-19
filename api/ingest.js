@@ -10,6 +10,7 @@ const pool = new pg.Pool({
   ssl: { rejectUnauthorized: false },
 });
 
+app.get("/", (req, res) => res.json({ status: "ok", where: "/api/ingest" }));
 
 // Ingest endpoint with authentication
 app.post("/", async (req, res) => {

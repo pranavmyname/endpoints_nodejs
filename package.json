@@ -2,23 +2,6 @@
   "name": "endpoints_nodejs",
   "version": "1.0.0",
   "type": "module",
-  "main": "server.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/pranavmyname/endpoints_nodejs.git"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/pranavmyname/endpoints_nodejs/issues"
-  },
-  "homepage": "https://github.com/pranavmyname/endpoints_nodejs#readme",
-  "description": "",
   "dependencies": {
     "express": "^5.1.0",
     "pg": "^8.16.3",
