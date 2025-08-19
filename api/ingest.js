@@ -12,7 +12,7 @@ const pool = new pg.Pool({
 });
 
 // Ingest endpoint with authentication
-app.post("/ingest", async (req, res) => {
+app.post("/", async (req, res) => {
   try {
     const authHeader = req.headers["authorization"];
 
