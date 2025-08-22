@@ -29,7 +29,7 @@ export default async function handler(req, res) {
     const client = await pool.connect();
     try {
       // Query params for filtering
-      const { start_date, end_date, category, account_type, type, user, description, limit = NULL } = req.query;
+      const { start_date, end_date, category, account_type, type, user, description, limit = null } = req.query;
 
       let sql = `SELECT id, to_char(date, 'DD/MM/YYYY') as date, time, account_type, bank, account_id,
                  "user", description, original_description, amount, type, file_source,
