@@ -29,7 +29,7 @@ export default async function handler(req, res) {
     const client = await pool.connect();
     try {
       // Query params for filtering
-      const { start_date, end_date, category, account_type, type, user, original_description, limit = 50 } = req.query;
+      const { start_date, end_date, category, account_type, type, user, description, limit = NULL } = req.query;
 
       let sql = `SELECT id, to_char(date, 'DD/MM/YYYY') as date, time, account_type, bank, account_id,
                  "user", description, original_description, amount, type, file_source,
@@ -68,8 +68,8 @@ export default async function handler(req, res) {
       }
 
       if (original_description) {
-        params.push(`%${original_description}%`);
-        sql += ` AND original_description ILIKE $${params.length}`;
+        params.push(`%${description}%`);
+        sql += ` AND description ILIKE $${params.length}`;
       }
 
       sql += ` ORDER BY date DESC, time DESC LIMIT $${params.length + 1}`;
