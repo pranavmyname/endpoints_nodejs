@@ -67,7 +67,7 @@ export default async function handler(req, res) {
         sql += ` AND "user" = $${params.length}`;
       }
 
-      if (original_description) {
+      if (description) {
         params.push(`%${description}%`);
         sql += ` AND description ILIKE $${params.length}`;
       }
