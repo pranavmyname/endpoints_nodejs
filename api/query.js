@@ -33,7 +33,7 @@ export default async function handler(req, res) {
 
       let sql = `SELECT to_char(date, 'DD/MM/YYYY') as date, time, account_type, bank, account_id,
                  "user", description, original_description, amount, type, category
-                 FROM transactions`;
+                 FROM transactions WHERE is_deleted = false`;
       const params = [];
 
       if (start_date) {
