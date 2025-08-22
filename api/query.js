@@ -31,10 +31,9 @@ export default async function handler(req, res) {
       // Query params for filtering
       const { start_date, end_date, category, account_type, type, user, description, limit = null } = req.query;
 
-      let sql = `SELECT id, to_char(date, 'DD/MM/YYYY') as date, time, account_type, bank, account_id,
-                 "user", description, original_description, amount, type, file_source,
-                 user_id, category, is_deleted, created_at, updated_at
-                 FROM transactions WHERE is_deleted = false`;
+      let sql = `SELECT to_char(date, 'DD/MM/YYYY') as date, time, account_type, bank, account_id,
+                 "user", description, original_description, amount, type, category
+                 FROM transactions`;
       const params = [];
 
       if (start_date) {
